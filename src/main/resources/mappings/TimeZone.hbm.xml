@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2020, Sabre Holdings. All Rights Reserved.
+  -->
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false">
+    <class name="com.binda.domain.TimeZone" table="TIME_ZONE_DEFINITION">
+        <comment>List of all timezones</comment>
+        <id name="id" type="int">
+            <generator class="native"/>
+        </id>
+
+        <property name="code" type="string">
+            <column name="TIME_ZONE_CODE" length="4" not-null="true">
+                <comment>Time Zone Code</comment>
+            </column>
+        </property>
+
+        <property name="name" type="string">
+            <column name="NAME" length="32" not-null="false">
+                <comment>Time Zone name (for example "Central Standard Time")</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

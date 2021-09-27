@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <groupId>com.binda</groupId>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>clossingSession</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>hibernate5WithSpring</name>
+    <dependencies>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>${h2.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-framework-bom</artifactId>
+            <version>${spring.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>6.2.0.Final</version>
+        </dependency>
+        <dependency>
+            <!-- exclusions doesnt work with bom  -->
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring.version}</version>
+            <exclusions>
+                <exclusion>
+                    <!-- we have jcl-over-slf4j -->
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-jcl</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>2.3</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.jetbrains/annotations -->
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>22.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>5.3.10</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>5.3.10</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>5.3.10</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>5.3.10</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-dbcp2 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-dbcp2</artifactId>
+            <version>2.9.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.30</version>
+        </dependency>
+
+    </dependencies>
+
+    <properties>
+        <hibernate.version>5.5.7.Final</hibernate.version>
+        <spring.version>5.3.10</spring.version>
+        <tomcat.version>8.5.37</tomcat.version>
+        <h2.version>1.4.200</h2.version>
+        <mvn.server.host>localhost</mvn.server.host>
+        <socket.base>2600</socket.base>
+        <mvn.ports.domain>${socket.base}</mvn.ports.domain>
+        <hibernate.ports.domain>${socket.base}</hibernate.ports.domain>
+        <mvn.jms.maxInactivityDuration>300000</mvn.jms.maxInactivityDuration>
+        <mvn.broker.urls>nio://${mvn.server.host}:${mvn.ports.domain}2?wireFormat.maxInactivityDuration=${mvn.jms.maxInactivityDuration}</mvn.broker.urls>
+        <mvnAutoupdateDeploymentUrl>http://shouldBeOverriddenInProfiles</mvnAutoupdateDeploymentUrl>
+        <mvn.server.javaOpts>-Xms2048m -Xmx4096m -Dcom.sun.managment.jmxremote -XX:+UnlockCommercialFeatures -XX:+FlightRecorder</mvn.server.javaOpts>
+        <mvn.legality.embedded.persistenceType>jdbc</mvn.legality.embedded.persistenceType>
+        <log4j.version>2.14.0</log4j.version>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
+
+</project>
