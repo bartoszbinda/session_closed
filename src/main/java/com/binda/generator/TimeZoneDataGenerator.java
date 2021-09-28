@@ -39,11 +39,11 @@ public class TimeZoneDataGenerator {
     @Transactional
     public void generate() {
         logger.info("Saving dstRule");
-        for (int i = 1;  i < 100; i++) {
+        for (int i = 1;  i < 10; i++) {
             DstRule dstRule = new DstRule(i, "abcd");
             dstRuleDao.saveOrUpdate(dstRule);
         }
-        logger.info("saved dstrule");
+        logger.info("saved dstRule");
 
         generateTimeZones();
         logger.info("saving timezones");
