@@ -57,10 +57,6 @@ public class PersistenceConfig {
         return sessionFactory;
     }
 
-    @Bean
-    public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
-        return new HibernateTransactionManager(sessionFactory);
-    }
 
     @Bean
     public TimeZone timeZone() {

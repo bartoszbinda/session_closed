@@ -13,6 +13,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../cmx/AircrewsServer/server-mock-impl/src/main/java/com/sabre/apd/aircrews/nextgen/business/mock/datagenerator/TimeZoneDataGenerator.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../cmx/cmx-deadheadbooking/cmx-deadheadbooking-dao/src/main/java/com/sabre/apd/aircrews/nextgen/deadhead/view/handler/DeadheadDataHelper.java">
           <value>
             <set />
@@ -33,7 +38,22 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/binda/ExceptionAwareTransactionAttributeSource.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/binda/JdbcTraceDataSupplier.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/binda/Main.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/binda/NullTransactionalResourceManager.java">
           <value>
             <set />
           </value>
@@ -43,7 +63,27 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/binda/StatsCollectingTransactionManager.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/binda/TransactionStatistics.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/binda/TransactionsStatistics.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/binda/config/PersistenceConfig.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/binda/domain/DstRule.java">
           <value>
             <set />
           </value>
@@ -59,6 +99,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/binda/repository/AbstractHibernateDao.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/binda/repository/HibernateDstRuleDao.java">
           <value>
             <set />
           </value>

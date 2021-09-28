@@ -4,9 +4,10 @@
 
 package com.binda.generator;
 
+import com.binda.domain.DstRule;
 import com.binda.domain.TimeZone;
+import com.binda.repository.HibernateDstRuleDao;
 import com.binda.repository.HibernateTimeZoneDao;
-import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,25 +22,35 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class TimeZoneDataGenerator {
     @SuppressWarnings({"NonConstantLogger"})
     private Logger logger = LoggerFactory.getLogger(TimeZoneDataGenerator.class);
-    private SessionFactory sessionFactory;
     private Map<String, TimeZone> timeZonesByCode = new HashMap<>();
     private Map<Integer, TimeZone> timeZonesById = new HashMap<>();
+
     AtomicInteger id = new AtomicInteger(0);
 
     private HibernateTimeZoneDao timeZoneDao;
+    private HibernateDstRuleDao dstRuleDao;
 
     @Autowired
-    public TimeZoneDataGenerator(SessionFactory sessionFactory, HibernateTimeZoneDao timeZoneDao) {
-        this.sessionFactory = sessionFactory;
+    public TimeZoneDataGenerator(HibernateDstRuleDao dstRuleDao, HibernateTimeZoneDao timeZoneDao) {
         this.timeZoneDao = timeZoneDao;
+        this.dstRuleDao = dstRuleDao;
     }
 
     @Transactional
     public void generate() {
+        logger.info("Saving dstRule");
+        for (int i = 1;  i < 100; i++) {
+            DstRule dstRule = new DstRule(i, "abcd");
+            dstRuleDao.saveOrUpdate(dstRule);
+        }
+        logger.info("saved dstrule");
+
         generateTimeZones();
+        logger.info("saving timezones");
         for (TimeZone timeZone : timeZonesById.values()) {
             timeZoneDao.saveOrUpdate(timeZone);
         }
+        logger.info("saved timezones");
     }
 
     public TimeZone createTimeZone(int timeZoneId, String code, Integer offset) {
