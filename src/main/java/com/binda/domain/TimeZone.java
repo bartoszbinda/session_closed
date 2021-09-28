@@ -8,6 +8,9 @@ import org.springframework.core.annotation.Order;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
@@ -15,9 +18,12 @@ import java.util.Objects;
 
 
 @Component
+@Entity
+@Table(name="TIME_ZONE")
 public class TimeZone implements Serializable {
     private static final long serialVersionUID = 5286176551463515740L;
 
+    @Id
     private int id;
 
     @Order(value = 1)
