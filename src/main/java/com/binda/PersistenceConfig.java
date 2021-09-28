@@ -5,6 +5,7 @@
 package com.binda;
 
 import com.binda.domain.TimeZone;
+import org.apache.commons.dbcp2.BasicDataSource;
 import org.h2.jdbcx.JdbcDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -87,9 +88,9 @@ public class PersistenceConfig {
 
     private DataSource createH2DataSource() {
         String jdbcUrl = String.format(H2_JDBC_URL_TEMPLATE, System.getProperty("user.dir"));
-        JdbcDataSource ds = new JdbcDataSource();
-        ds.setURL(jdbcUrl);
-        ds.setUser("sa");
+        BasicDataSource ds = new BasicDataSource();
+        ds.setUrl(jdbcUrl);
+        ds.setUsername("sa");
         ds.setPassword("");
         return ds;
     }
@@ -99,7 +100,7 @@ public class PersistenceConfig {
         Properties props = new Properties();
         props.put("hibernate.query.substitutions", "true 'Y', false 'N'");
         props.put("hibernate.hbm2ddl.auto", "create-drop");
-        props.put("hibernate.show_sql", "false");
+        props.put("hibernate.show_sql", "true");
         props.put("hibernate.format_sql", "true");
 
         return props;

@@ -7,7 +7,7 @@ public class NullTransactionalResourceManager {
     public void transactionBegin() {
     }
 
-    public void transactionCommitted() {
+    public void     transactionCommitted() {
     }
 
     public void transactionRolledback() {

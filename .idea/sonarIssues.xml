@@ -18,6 +18,21 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../cmx/app-base/app-base-server/app-base-server-common/src/main/java/com/sabre/apd/aircrews/nextgen/infrastructure/PersistenceExceptionTranslationAdvisorWrapper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../cmx/app-base/app-base-server/app-base-server-common/src/main/java/com/sabre/apd/aircrews/nextgen/infrastructure/datasource/CrewManagerDataSource.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../cmx/app-base/app-base-server/app-base-server-common/src/main/resources/baseServerContext/hibernate/sessionFactory.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../cmx/cmx-deadheadbooking/cmx-deadheadbooking-dao/src/main/java/com/sabre/apd/aircrews/nextgen/deadhead/view/handler/DeadheadDataHelper.java">
           <value>
             <set />
