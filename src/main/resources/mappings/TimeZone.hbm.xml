@@ -8,20 +8,20 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping default-lazy="false">
-    <class name="com.binda.domain.TimeZone" table="TIME_ZONE_DEFINITION">
+    <class name="com.binda.domain.TimeZone" table="TIME_ZONE">
         <comment>List of all timezones</comment>
-        <id name="id" type="int">
+        <id name="id" type="int" column="ID">
             <generator class="native"/>
         </id>
 
         <property name="code" type="string">
-            <column name="TIME_ZONE_CODE" length="4" not-null="true">
+            <column name="CODE" not-null="true">
                 <comment>Time Zone Code</comment>
             </column>
         </property>
 
         <property name="name" type="string">
-            <column name="NAME" length="32" not-null="false">
+            <column name="NAME" not-null="true">
                 <comment>Time Zone name (for example "Central Standard Time")</comment>
             </column>
         </property>

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <groupId>com.binda</groupId>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>clossingSession</artifactId>
@@ -97,16 +97,52 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.7</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.196</version>
+        </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>1.7.30</version>
+            <version>${slf4j.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.14.1</version>
+        </dependency>
     </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <forceJavacCompilerUse>true</forceJavacCompilerUse>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <properties>
         <hibernate.version>5.5.7.Final</hibernate.version>
+        <slf4j.version>1.7.30</slf4j.version>
         <spring.version>5.3.10</spring.version>
         <tomcat.version>8.5.37</tomcat.version>
         <h2.version>1.4.200</h2.version>
@@ -115,9 +151,13 @@
         <mvn.ports.domain>${socket.base}</mvn.ports.domain>
         <hibernate.ports.domain>${socket.base}</hibernate.ports.domain>
         <mvn.jms.maxInactivityDuration>300000</mvn.jms.maxInactivityDuration>
-        <mvn.broker.urls>nio://${mvn.server.host}:${mvn.ports.domain}2?wireFormat.maxInactivityDuration=${mvn.jms.maxInactivityDuration}</mvn.broker.urls>
+        <mvn.broker.urls>
+            nio://${mvn.server.host}:${mvn.ports.domain}2?wireFormat.maxInactivityDuration=${mvn.jms.maxInactivityDuration}
+        </mvn.broker.urls>
         <mvnAutoupdateDeploymentUrl>http://shouldBeOverriddenInProfiles</mvnAutoupdateDeploymentUrl>
-        <mvn.server.javaOpts>-Xms2048m -Xmx4096m -Dcom.sun.managment.jmxremote -XX:+UnlockCommercialFeatures -XX:+FlightRecorder</mvn.server.javaOpts>
+        <mvn.server.javaOpts>-Xms2048m -Xmx4096m -Dcom.sun.managment.jmxremote -XX:+UnlockCommercialFeatures
+            -XX:+FlightRecorder
+        </mvn.server.javaOpts>
         <mvn.legality.embedded.persistenceType>jdbc</mvn.legality.embedded.persistenceType>
         <log4j.version>2.14.0</log4j.version>
         <maven.compiler.source>11</maven.compiler.source>

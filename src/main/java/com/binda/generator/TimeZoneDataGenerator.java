@@ -9,13 +9,15 @@ import com.binda.repository.HibernateTimeZoneDao;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.transaction.Transactional;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
-
+@Component
 public class TimeZoneDataGenerator {
     @SuppressWarnings({"NonConstantLogger"})
     private Logger logger = LoggerFactory.getLogger(TimeZoneDataGenerator.class);
@@ -25,6 +27,12 @@ public class TimeZoneDataGenerator {
     AtomicInteger id = new AtomicInteger(0);
 
     private HibernateTimeZoneDao timeZoneDao;
+
+    @Autowired
+    public TimeZoneDataGenerator(SessionFactory sessionFactory, HibernateTimeZoneDao timeZoneDao) {
+        this.sessionFactory = sessionFactory;
+        this.timeZoneDao = timeZoneDao;
+    }
 
     @Transactional
     public void generate() {

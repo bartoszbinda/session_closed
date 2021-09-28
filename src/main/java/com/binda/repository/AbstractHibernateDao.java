@@ -3,11 +3,13 @@ package com.binda.repository;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.transaction.Transactional;
 import java.io.Serializable;
 import java.util.List;
 
+@Component
 public abstract class AbstractHibernateDao<T extends Serializable> {
     private Class<T> clazz;
 
@@ -22,7 +24,7 @@ public abstract class AbstractHibernateDao<T extends Serializable> {
         return (T) getCurrentSession().get(clazz, id);
     }
 
-    public List findAll() {
+    public List<T> findAll() {
         return getCurrentSession()
                 .createQuery("from " + clazz.getName()).list();
     }

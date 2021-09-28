@@ -6,6 +6,7 @@ package com.binda.domain;
 
 import org.springframework.core.annotation.Order;
 import org.springframework.lang.Nullable;
+import org.springframework.stereotype.Component;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -13,6 +14,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 
+@Component
 public class TimeZone implements Serializable {
     private static final long serialVersionUID = 5286176551463515740L;
 
