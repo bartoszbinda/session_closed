@@ -55,12 +55,6 @@ public class PersistenceConfig {
         return sessionFactory;
     }
 
-
-    @Bean
-    public TimeZone timeZone() {
-        return new TimeZone();
-    }
-
     @Bean
     public DataSource dataSource(Environment env) throws Exception {
         return createH2DataSource();

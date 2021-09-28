@@ -27,10 +27,10 @@ public class StatsCollectingTransactionManager extends HibernateTransactionManag
     private static final Logger LOGGER = LoggerFactory.getLogger(StatsCollectingTransactionManager.class);
     private static final long serialVersionUID = 6511344557852573953L;
     private TransactionsStatistics statistics = new TransactionsStatistics();
-    NullTransactionalResourceManager transactionalResourceManager = new NullTransactionalResourceManager();
+    NullTransactionalResourceManager transactionalResourceManager;
     private LocalSessionFactoryBean factoryBean;
     private SessionFactory sessionFactory;
-    private boolean earlyFlushBeforeCommit;
+    private boolean earlyFlushBeforeCommit=true;
 
     @Override
     public void setSessionFactory(SessionFactory sessionFactory) {
